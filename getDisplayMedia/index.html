@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web端截屏实现 - getDisplayMedia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Web端截屏演示 (getDisplayMedia)</h1>
+        <div class="controls">
+            <button id="start-capture">开始屏幕捕获</button>
+            <button id="take-screenshot" disabled>截取当前画面</button>
+            <button id="stop-capture" disabled>停止捕获</button>
+            <div class="options">
+                <label>
+                    <input type="checkbox" id="use-audio"> 包含音频
+                </label>
+                <label>
+                    <select id="image-format">
+                        <option value="png">PNG</option>
+                        <option value="jpeg">JPEG</option>
+                    </select>
+                    格式
+                </label>
+                <label>
+                    <input type="number" id="jpeg-quality" value="90" min="10" max="100" step="5"> JPEG质量(%)
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="content">
+            <h2>使用getDisplayMedia API捕获屏幕</h2>
+            <p>此演示使用现代Web API来捕获系统屏幕、应用窗口或浏览器标签。点击"开始屏幕捕获"并选择要共享的内容。</p>
+            
+            <div id="display-area">
+                <div id="intro-message">
+                    <div class="icon">🖥️</div>
+                    <p>点击上方的"开始屏幕捕获"按钮选择要共享的屏幕、窗口或标签</p>
+                </div>
+                <video id="preview-video" autoplay muted playsinline></video>
+            </div>
+        </div>
+    </main>
+
+    <div id="result-container">
+        <h3>截图结果</h3>
+        <div id="screenshot-result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
